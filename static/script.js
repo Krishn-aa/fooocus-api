@@ -5,7 +5,7 @@ document.getElementById('generate-button').addEventListener('click', async () =>
     messageDiv.textContent = 'Generating...';
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/generate-image');
+        const response = await fetch('/generate-image');
         if (!response.ok) {
             throw new Error('Network response was not ok.');
         }
