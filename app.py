@@ -4,7 +4,7 @@ import google.generativeai as genai
 from gradio_client import Client
 
 from PIL import Image
-from flask import Flask, jsonify
+from flask import Flask,render_template, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -12,6 +12,10 @@ app = Flask(__name__)
 # Add CORS support
 CORS(app)
 
+@app.route('/', methods=['GET'])
+def welcome():
+    return render_template('home.html')
+ 
 @app.route('/generate-image', methods=['GET'])
 def generate_image():
     # Configuration for Google Generative AI
